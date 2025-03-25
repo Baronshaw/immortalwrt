@@ -1,0 +1,24 @@
+--- a/mt7996/main.c
++++ a/mt7996/main.c
+@@ -1611,11 +1611,10 @@
+ 
+ static void mt7996_link_sta_rc_update(struct ieee80211_hw *hw,
+ 				      struct ieee80211_vif *vif,
+-				      struct ieee80211_link_sta *link_sta,
++				      struct ieee80211_sta *sta,
+ 				      u32 changed)
+ {
+ 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
+-	struct ieee80211_sta *sta = link_sta->sta;
+ 
+ 	mt7996_link_rate_ctrl_update(&changed, sta);
+ 	ieee80211_queue_work(hw, &dev->rc_work);
+@@ -2108,7 +2107,7 @@
+ 	.link_info_changed = mt7996_link_info_changed,
+ 	.sta_state = mt7996_sta_state,
+ 	.sta_pre_rcu_remove = mt76_sta_pre_rcu_remove,
+-	.link_sta_rc_update = mt7996_link_sta_rc_update,
++	.sta_rc_update = mt7996_link_sta_rc_update,
+ 	.set_key = mt7996_set_key,
+ 	.ampdu_action = mt7996_ampdu_action,
+ 	.set_rts_threshold = mt7996_set_rts_threshold,
