@@ -1,8 +1,8 @@
 *.o
 .DS_Store
 .*.swp
-/bin_p1
-/bin_p1-alt
+/bin-p1
+/bin-p1-alt
 /env
 /dl
 /.config
